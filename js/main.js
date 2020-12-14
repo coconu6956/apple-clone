@@ -310,11 +310,12 @@
                 }
 
                 objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+                objs.context.fillStyle = 'white';
                 objs.context.drawImage(objs.images[0], 0, 0);
 
                 //캔버스 사이즈에 맞춰 가정한 innerWidth와 innerHeight
                 const recalculatedInnerWidth = document.body.offsetHeight / canvasScaleRatio;
-                const recalculatedInnerHeigt = window.innerHeight / canvasScaleRatio;
+                const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio;
 
                 if(!values.rectStartY){
                     values.rectStartY = objs.canvas.getBoundingClientRect().top;
@@ -329,8 +330,8 @@
                 values.rect2X[1] = values.rect2X[0] + whiteRectWidth;
 
                 //좌우 흰색 박스 그리기
-                //objs.context.fillRect(values.rect1X[0], 0, parseInt(whiteRectWidth), recalculatedInnerHeigt); //캔버스에서 그릴때 정수로 해야지 성능이 좋다 'ㅅ'
-                //objs.context.fillRect(values.rect2X[0], 0, parseInt(whiteRectWidth), recalculatedInnerHeigt);
+                //objs.context.fillRect(values.rect1X[0], 0, parseInt(whiteRectWidth), recalculatedInnerHeight); //캔버스에서 그릴때 정수로 해야지 성능이 좋다 'ㅅ'
+                //objs.context.fillRect(values.rect2X[0], 0, parseInt(whiteRectWidth), recalculatedInnerHeight);
                 objs.context.fillRect(
                     parseInt(calcValues(values.rect1X, currentYOffset)),
                     0,
